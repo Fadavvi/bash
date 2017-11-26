@@ -75,6 +75,7 @@ mkdir /var/log/sagan
 mkdir /var/run/sagan
 mkdir /var/sagan/
 mkdir /var/sagan/ipc
+mkdir /var/sagan/fifo/
 mkdir /var/log/sagan/stats
 touch /var/log/sagan/stats/sagan.stats
 chown -R sagan /var/sagan
