@@ -8,4 +8,9 @@ Bash Scripts I wrote
 
     [Sagan git : https://github.com/beave/sagan ]
 ---------------------------------------------------------------------------------------------
+    FreeIPA_Uninstall_Script.sh
 
+    Uninstall FreeIPA and all related data.
+
+    [FreeIPA git: https://github.com/freeipa/freeipa ]
+---------------------------------------------------------------------------------------------
