@@ -42,7 +42,7 @@ echo ${RED}'\n\nStep 5: install  liblognorm\n'${NC}
 git clone https://github.com/rsyslog/liblognorm
 cd liblognorm/
 autoreconf -vfi
-./configure --disable-docs --libdir=/usr/lib --includedir=/usr/include
+./configure --disable-docs --libdir=/usr/lib --includedir=/usr/include  --enable-regexp --enable-advanced-stats --enable-valgrind
 make && make install
 ldconfig
 cd ..
