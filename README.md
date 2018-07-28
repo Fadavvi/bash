@@ -24,12 +24,12 @@ Bash Scripts I wrote
 
     [FreeIPA git: https://github.com/freeipa/freeipa ]
 ---------------------------------------------------------------------------------------------
-    To Do List:
+  To Do List:
     
-    1. Make a service file for Sagan.
-   <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
-    3. Additinal conf for firewalls.
-    4. Rule Creator script for Sagan.
+  1. Make a service file for Sagan.
+  <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
+  <p>3. Additinal conf for firewalls.</p>
+  <p>4. Rule Creator script for Sagan.</p>
     
    <p><label for="progress">Progress:</label><br />
    <progress id="progress" value="25" max="100"></progress>
