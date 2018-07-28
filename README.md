@@ -6,6 +6,7 @@ Bash Scripts I wrote
 
 
 <cite>[Sagan git : (https://github.com/beave/sagan) ]</cite>
+
     sagan_install_ubuntu.bash   
 
     Install Sagan on Ubuntu (with all needed libs and barnyard2 & downloading Rules)
@@ -24,12 +25,12 @@ Bash Scripts I wrote
 	
 
 ---------------------------------------------------------------------------------------------
+<cite>[FreeIPA git: (https://github.com/freeipa/freeipa) ]</cite>
    
     FreeIPA_Uninstall_Script.sh
 
     Uninstall FreeIPA and all related data.
-
-   <cite>[FreeIPA git: (https://github.com/freeipa/freeipa) ]</cite>
+   
 ---------------------------------------------------------------------------------------------
    
    To Do List:
