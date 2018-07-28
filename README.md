@@ -27,10 +27,10 @@ Bash Scripts I wrote
     To Do List:
     
     1. Make a service file for Sagan.
-    <s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s>
+   <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
     3. Additinal conf for firewalls.
     4. Rule Creator script for Sagan.
     
-    <p><label for="progress">Progress:</label><br />
-    <progress id="progress" value="25" max="100"></progress>
-    </p>
+   <p><label for="progress">Progress:</label><br />
+   <progress id="progress" value="25" max="100"></progress>
+   </p>
