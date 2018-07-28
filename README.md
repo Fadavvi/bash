@@ -27,6 +27,6 @@ Bash Scripts I wrote
     To Do List:
     
     1. Make a service file for Sagan.
-    2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.
+   s 2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.
     3. Additinal conf for firewalls.
     4. Rule Creator script for Sagan.
