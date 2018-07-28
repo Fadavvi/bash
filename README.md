@@ -29,8 +29,8 @@ Bash Scripts I wrote
    
     To Do List:
     
-    <p>1. Make a service file for Sagan.</p>
-    <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
-    <p>3. Additinal conf for firewalls.</p>
-    <p>4. Rule Creator script for Sagan.</p>
-    <progress id="progress" value="25" max="100"></progress>
+   <p>1. Make a service file for Sagan.</p>
+   <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
+   <p>3. Additinal conf for firewalls.</p>
+   <p>4. Rule Creator script for Sagan.</p>
+   <progress id="progress" value="25" max="100"></progress>
