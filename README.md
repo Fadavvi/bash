@@ -33,4 +33,10 @@ Bash Scripts I wrote
    <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
    <p>3. Additinal conf for firewalls.</p>
    <p>4. Rule Creator script for Sagan.</p>
-   <form><progress id="progress" value="25" max="100"></progress></form>
+   <form>    <p><label for="progress">Progress:</label><br />
+      <progress id="progress" value="65" max="100"></progress>
+    </p>
+
+   <p><label for="meter">Meter:</label><br />
+      <meter id="meter" min="200" max="500" value="350">350 degrees</meter>
+    </p></form>
