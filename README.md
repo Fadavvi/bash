@@ -32,6 +32,13 @@ Bash Scripts I wrote
     Uninstall FreeIPA and all related data.
    
 ---------------------------------------------------------------------------------------------
+<cite>[Jigsaw Outline server git: (https://github.com/Jigsaw-Code/outline-server/) ]</cite>
+
+    outline_vpn_on_docker.sh
+   
+    Basic outline install on docker for CentOS.
+   
+---------------------------------------------------------------------------------------------
    
    To Do List:
     
