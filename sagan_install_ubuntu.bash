@@ -11,9 +11,10 @@ echo 'Notice: I Choose MySQL! \n'${NC}
 apt-get install git mysql-server libyaml-dev libtool autoconf libesmtp-dev libpcap-dev build-essential checkinstall libpcre3-dev libpcre3 libgeoip-dev pkg-config libgnutls28-dev libprelude-dev libdaq-dev libpthread-stubs0-dev
 echo ${RED}'\n\nStep 2: Install GeoIP Lib & Database\n'${NC}
 mkdir /usr/local/share/GeoIP
-wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
-gunzip GeoLite2-City.mmdb.gz
-mv GeoLite2-City.mmdb /usr/local/share/GeoIP/
+wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
+tar xvzf GeoLite2-Country.tar.gz
+cd GeoLite2-Country*
+mv GeoLite2-Country.mmdb /usr/local/share/GeoIP/
 git clone --recursive https://github.com/maxmind/libmaxminddb
 cd libmaxminddb
 ./bootstrap
