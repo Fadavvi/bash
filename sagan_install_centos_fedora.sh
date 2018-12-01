@@ -15,8 +15,9 @@ yum install -y git build-essential checkinstall autoconf pkg-config libtool liby
 echo ${RED}'\n\nStep 2: Install GeoIP Lib & Database\n'${NC}
 mkdir /usr/local/share/GeoIP
 wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
-gunzip GeoLite2-City.mmdb.gz
-mv GeoLite2-City.mmdb /usr/local/share/GeoIP/
+tar xvzf GeoLite2-Country.tar.gz
+cd GeoLite2-Country*
+mv GeoLite2-Country.mmdb /usr/local/share/GeoIP/
 git clone --recursive https://github.com/maxmind/libmaxminddb
 cd libmaxminddb
 ./bootstrap
