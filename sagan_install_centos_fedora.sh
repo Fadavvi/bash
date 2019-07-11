@@ -7,11 +7,12 @@ echo '|      by Milad Fadavvi        |\n'
 echo '|     Run Script as ROOT       |\n'
 echo ' ==============================\n\n'
 echo 'Step 1 : install Available Packages'
-yum install -y git build-essential checkinstall autoconf pkg-config libtool libyaml-devel \
+yum groupinstall -y 'Development Tools'
+yum install -y git  libtool libyaml-devel net-snmp net-snmp-perl snmptt  perl-Sys-Syslog \
                     libesmtp-devel libpcap-devel pcre-devel geoip-devel gnutls-devel prelude-devel \
                     daq-devel glibc-static libestr-devel libfastjson-devel liblognorm-devel flex flow-tools \
-                    rrdtool-devel rrdtool-perl flex flow-tools rrdtool-devel rrdtool-perl  byacc bison \
-                    net-snmp net-snmp-perl snmptt  perl-Sys-Syslog
+                    rrdtool-devel rrdtool-perl flex flow-tools rrdtool-devel rrdtool-perl  byacc bison
+                    
 echo ${RED}'\n\nStep 2: Install GeoIP Lib & Database\n'${NC}
 mkdir /usr/local/share/GeoIP
 wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
