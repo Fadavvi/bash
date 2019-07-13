@@ -25,7 +25,6 @@ cd libmaxminddb
 ./configure
 make check
 make install
-sh -c "echo /usr/local/lib  >> /etc/ld.so.conf.d/local.conf"
 ldconfig
 cd ..
 echo ${RED}'\n\nStep 3: install libfastjson \n'${NC}
