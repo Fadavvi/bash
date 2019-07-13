@@ -25,7 +25,8 @@ cd libmaxminddb
 ./configure
 make check
 make install
-ldconfig -v
+sh -c "echo /usr/local/lib  >> /etc/ld.so.conf.d/local.conf"
+ldconfig
 cd ..
 echo ${RED}'\n\nStep 3: install libfastjson \n'${NC}
 git clone https://github.com/rsyslog/libfastjson
@@ -33,7 +34,7 @@ cd libfastjson
 ./autogen.sh
 ./configure --libdir=/usr/lib --includedir=/usr/include
 make && make install
-ldconfig -v
+ldconfig
 cd ..
 echo ${RED}'\n\nStep 4: install libestr \n'${NC}
 git clone https://github.com/rsyslog/libestr
@@ -41,7 +42,7 @@ cd libestr/
 autoreconf -vfi
 ./configure --libdir=/usr/lib --includedir=/usr/include
 make && make install
-ldconfig -v
+ldconfig
 cd ..
 echo ${RED}'\n\nStep 5: install  liblognorm\n'${NC}
 git clone https://github.com/rsyslog/liblognorm
@@ -49,7 +50,7 @@ cd liblognorm/
 autoreconf -vfi
 ./configure --disable-docs --libdir=/usr/lib --includedir=/usr/include  --enable-regexp --enable-advanced-stats --enable-valgrind
 make && make install
-ldconfig -v
+ldconfig
 cd ..
 echo ${RED}'\n\nStep 6: install libdnet\n'${NC}
 git clone https://github.com/jncornett/libdnet
@@ -63,7 +64,7 @@ cd sagan/
 ./autogen.sh
 ./configure --enable-geoip2 --enable-esmtp --enable-libpcap --enable-dependency-tracking
 make && make install
-ldconfig -v
+ldconfig
 cd .. 
 echo ${RED}'\n\nStep 8: Install Barnyard2 for Sagan\n'${NC}
 git clone https://github.com/firnsy/barnyard2
@@ -71,14 +72,14 @@ cd barnyard2*
 ./autogen.sh 
 ./configure --enable-prelude LIBS="-pthread"
 make && make install
-ldconfig -v
+ldconfig
 cd ..
 echo ${RED}'\n\nStep 9: Install Netflow Support\n'${NC}
 git clone https://github.com/beave/nfdump-1.6.10p1-sagan
 cd nfdump-1.6.10p1-sagan
 ./configure --enable-sflow --enable-nfprofile --enable-nftrack --enable-sagan --enable-nsel
 make && make install
-ldconfig -v
+ldconfig
 echo ${RED}'\n\nStep 10: Install SNMPTrap Support\n'${NC}
 echo 'OPTIONS="-On -Lsd -p /var/run/snmptrapd.pid"' >> /etc/sysconfig/snmptrapd
 echo 'traphandle default /usr/sbin/snmptthandler' >> /etc/snmp/snmptrapd.conf
@@ -88,7 +89,7 @@ chkconfig snmptrapd on
 service snmptt start
 chkconfig snmptt on
 sh -c "echo /usr/local/lib  >> /etc/ld.so.conf.d/local.conf"
-$ ldconfig -v
+$ ldconfig
 echo ${RED}'Notice!! you should change : \n'
 echo '/usr/local/etc/sagan.yaml \n\n'
 echo 'GeoIP file: /usr/local/share/GeoIP/GeoLite2-City.mmdb \n'
