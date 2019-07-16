@@ -37,12 +37,11 @@ Bash Scripts I wrote
     outline_vpn_on_docker.sh
    
     Basic outline install on docker for CentOS.
+
+---------------------------------------------------------------------------------------------- 
+
+    Harded.sh
+    
+    Very little CentOS hardening script
    
 ---------------------------------------------------------------------------------------------
-   
-   To Do List:
-    
-   <p><s>1. Make a service file for Sagan.</s></p>
-   <p><s>2. Change Install script for NetFlow/Sflow/SNMP/IPIX support.</s></p>
-   <p>3. Additinal conf for firewalls.</p>
-   <p>4. Rule Creator script for Sagan.</p>
