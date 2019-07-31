@@ -61,7 +61,7 @@ echo ${RED}'\n\nStep 7: install  Sagan\n'${NC}
 git clone https://github.com/beave/sagan
 cd sagan/
 ./autogen.sh
-./configure --enable-geoip2 --enable-esmtp --enable-libpcap --enable-dependency-tracking
+./configure --enable-geoip --enable-esmtp --enable-libpcap --enable-dependency-tracking
 make && make install
 ldconfig
 cd .. 
