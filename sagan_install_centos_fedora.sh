@@ -8,7 +8,7 @@ echo '|     Run Script as ROOT       |\n'
 echo ' ==============================\n\n'
 echo 'Step 1 : install Available Packages'
 yum groupinstall -y 'Development Tools'
-yum install -y git  libtool libyaml-devel net-snmp net-snmp-perl snmptt  perl-Sys-Syslog \
+yum install -y git wget libtool libyaml-devel net-snmp net-snmp-perl snmptt  perl-Sys-Syslog \
                     libesmtp-devel libpcap-devel pcre-devel geoip-devel gnutls-devel prelude-devel \
                     daq-devel glibc-static libestr-devel libfastjson-devel liblognorm-devel flex flow-tools \
                     rrdtool-devel rrdtool-perl flex flow-tools rrdtool-devel rrdtool-perl  byacc bison
