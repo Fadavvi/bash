@@ -27,6 +27,12 @@ make check
 make install
 ldconfig
 cd ..
+echo ${RED}'\n\nStep 2.5!: Hredis installation\n'${NC}
+git clone https://github.com/redis/hiredis.git
+cd cd hiredis
+make && make install
+ldconfig
+cd ..
 echo ${RED}'\n\nStep 3: install libfastjson \n'${NC}
 git clone https://github.com/rsyslog/libfastjson
 cd libfastjson
@@ -61,7 +67,7 @@ echo ${RED}'\n\nStep 7: install  Sagan\n'${NC}
 git clone https://github.com/beave/sagan
 cd sagan/
 ./autogen.sh
-./configure --enable-geoip --enable-esmtp --enable-libpcap --enable-dependency-tracking
+./configure --enable-geoip --enable-esmtp --enable-libpcap --enable-redis --enable-dependency-tracking
 make && make install
 ldconfig
 cd .. 
