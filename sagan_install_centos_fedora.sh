@@ -31,6 +31,8 @@ echo ${RED}'\n\nStep 2.5!: Hredis installation\n'${NC}
 git clone https://github.com/redis/hiredis.git
 cd cd hiredis
 make && make install
+LD_LIBRARY_PATH=/usr/local/lib64
+export LD_LIBRARY_PATH
 ldconfig
 cd ..
 echo ${RED}'\n\nStep 3: install libfastjson \n'${NC}
