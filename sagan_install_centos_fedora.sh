@@ -29,8 +29,9 @@ ldconfig
 cd ..
 echo ${RED}'\n\nStep 2.5!: Hredis installation\n'${NC}
 git clone https://github.com/redis/hiredis.git
-cd cd hiredis
+cd hiredis
 make && make install
+ln -s /usr/local/lib/libhiredis.so.0.14 /usr/local/lib64/libhiredis.so.0.14
 LD_LIBRARY_PATH=/usr/local/lib64
 export LD_LIBRARY_PATH
 ldconfig
