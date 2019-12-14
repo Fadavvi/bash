@@ -1,8 +1,0 @@
-[Unit]
-Description = Sagan Service
-After = network.target
-[Service]
-ExecStart =/bin/bash /opt/Sagan_Auto_start.sh
-Restart=always
-[Install]
-WantedBy = multi-user.target
