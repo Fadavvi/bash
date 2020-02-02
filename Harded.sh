@@ -8,7 +8,7 @@ echo '|        by Milad Fadavvi      |\n'
 echo '|       Run Script as ROOT     |\n'
 echo ' ==============================\n\n'${RED}
 echo 'Kernel level configuration will change.'
-read -p "Are you sure? (y/n)" -n 1 -r
+read -p "Are you sure? (y/n)" -n 1 -r REPLY
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     authconfig --passalgo=sha512 --update
