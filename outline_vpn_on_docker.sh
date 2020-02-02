@@ -1,5 +1,6 @@
-echo "Run script with root/sudo-enabled user"
-yum install -y curl wget
+#!/usr/bin/env bash
+echo "Run script as root or with sudo"
+yum install -y curl wget > /dev/null
 curl -sS https://get.docker.com/ | sh
 systemctl start docker
 systemctl enable docker
