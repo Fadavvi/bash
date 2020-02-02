@@ -8,7 +8,7 @@ echo '|      by Milad Fadavvi        |\n'
 echo '|     Run Script as ROOT       |\n'
 echo ' ==============================\n\n'
 echo 'Be careful - This Script will deleting all IPA data'
-read -p "Are you sure? (y/n)" -n 1 -r
+read -p "Are you sure? (y/n)" -n 1 -r REPLY
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     ipa-server-install -U --uninstall
