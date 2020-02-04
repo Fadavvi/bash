@@ -45,3 +45,9 @@ Bash Scripts I wrote
     Very little CentOS hardening script
    
 ---------------------------------------------------------------------------------------------
+
+<cite>[Open Virtual Switch git: (https://github.com/openvswitch/ovs) ]</cite>
+
+    OVS-Install.sh
+   
+    Install OVS and all needed deps on CentOS 7.
