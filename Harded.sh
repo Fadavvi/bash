@@ -1,30 +1,55 @@
 #!/usr/bin/env bash
-RED='\033[0;31m'
+RED='\e[31m'
+YELLOW='\e[33m'
+GREEN='\e[32m'
+INVERT='\e[7m'
 NC='\033[0m'
-echo ${RED}' ==============================\n'
-echo '| CentOS/RHEL/Fedora Harded.sh |\n'
-echo '|            V0.13             |\n'
-echo '|        by Milad Fadavvi      |\n'
-echo '|       Run Script as ROOT     |\n'
-echo ' ==============================\n\n'${RED}
-echo 'Kernel level configuration will change.'
+echo -e ${RED}' ==============================\n'
+echo -e '| CentOS/RHEL/Fedora Hardening |\n'
+echo -e '|   Script for ISMS(ISO27001)  |\n'
+echo -e '|           V0.15              |\n'
+echo -e '|      by Milad Fadavvi        |\n'
+echo -e '|    * Run Script as ROOT *    |\n'
+echo -e ' ==============================\n\n'
+echo -e 'Kernel level configuration will change.'${NC}
 read -p "Are you sure? (y/n)" -n 1 -r REPLY
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    authconfig --passalgo=sha512 --update
-    systemctl mask ctrl-alt-del.target
+    echo -e '\n'
+    echo -e ${GREEN}'* Change password hash algorithem : SHA512 \n'${NC}
+    authconfig --passalgo=sha512 --update > /dev/null
+    sleep 5s
+    echo -e ${GREEN}'* Disable restart with ctrl-alt-del \n'${NC}
+    systemctl mask ctrl-alt-del.target >> /dev/null 
+    sleep 5s
+    echo -e ${GREEN}'* Add sshd to /etc/hosts.allow \n'${NC}
     echo "ALL:ALL" >> /etc/hosts.deny
     echo "sshd:ALL" >> /etc/hosts.allow
+    sleep 5s
+    echo -e ${GREEN}'* Remove blank password option from PAM \n'${NC}
     sed -i 's/\<nullok\>//g' /etc/pam.d/system-auth
-    yum install epel-release -y && yum update -y > /dev/nill
-    yum install ntp ntpdate -y > /dev/null
-    systemctl enable ntpdat && systemctl start ntpd
+    sleep 5s
+    echo -e ${RED}'Update with YUM then install NTPD '${NC}
+    read -p "Do you want to process? (y/n)" -n 1 -r REPLY
+    echo -e '\n'
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        yum install epel-release -y && yum update -y > /dev/null
+        yum install ntp ntpdate -y > /dev/null
+        systemctl enable ntpdat > /dev/null && systemctl start ntpd > /dev/null
+    sleep 5s
+    fi
+    echo -e ${GREEN}'* Remove Zero Conf NIC & IPv6 options \n'${NC}
+    echo "options ipv6 disable=1" >> /etc/modprobe.d/disabled.conf
     echo "NOZEROCONF=yes
     NETWORKING_IPV6=no
     IPV6INIT=no" >> /etc/sysconfig/network
+    sleep 5s
+    echo -e ${GREEN}'* Write a banner for SSH/tty Logins \n'${NC}
     echo "Authorized uses only. All activity may be monitored and reported." > /etc/issue
     echo "Authorized uses only. All activity may be monitored and reported." > /etc/issue.net
-    echo "options ipv6 disable=1" >> /etc/modprobe.d/disabled.conf
+    sleep 5s
+    echo -e ${GREEN}'* Kernel level parameters \n'${NC}
     echo "net.ipv4.ip_forward = 0
     net.ipv4.conf.all.send_redirects = 0
     net.ipv4.conf.default.send_redirects = 0
@@ -44,6 +69,8 @@ then
     net.ipv4.conf.default.rp_filter = 1
     net.ipv4.tcp_timestamps = 0" >> /etc/sysctl.conf
     sysctl -q -n -w kernel.randomize_va_space=2
+    sleep 5s
+    echo -e ${GREEN}'* Write audit rules & resetart the service \n'${NC}
     echo "-a always,exit -F arch=b64 -S adjtimex -S settimeofday -k time-change" > /etc/audit/audit.rules
     echo "-a always,exit -F arch=b32 -S adjtimex -S settimeofday -S stime -k timechange" >> /etc/audit/audit.rules
     echo "-a always,exit -F arch=b64 -S clock_settime -k time-change" >> /etc/audit/audit.rules
@@ -92,6 +119,8 @@ then
     echo "-e 2" >> /etc/audit/audit.rule
     pkill auditd
     systemctl start auditd
+    sleep 5s
+    echo -e ${GREEN}'* SSHD Hardening & restart the service \n'${NC}
     sed -i 's/X11Forwarding yes/X11Forwarding no/g' /etc/ssh/sshd_config
     sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 300/g' /etc/ssh/sshd_config
     sed -i 's/#ClientAliveCountMax 3/ClientAliveCountMax 0/g' /etc/ssh/sshd_config
@@ -99,5 +128,3 @@ then
     echo "MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com" >> /etc/ssh/sshd_config
     systemctl restart sshd
 fi
-
-
