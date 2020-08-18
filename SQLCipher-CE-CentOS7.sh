@@ -12,5 +12,7 @@ make > /dev/null
 make install > /dev/null
 cp sqlcipher /usr/local/sbin/
 echo -e 'SQLCipher Info:\n'
+export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
+ldconfig
 sqlcipher --version
 exit 0
