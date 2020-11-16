@@ -196,6 +196,22 @@ echo "-w /sbin/insmod -p x -k modules" >> /etc/audit/audit.rule
 echo "-w /sbin/rmmod -p x -k modules" >> /etc/audit/audit.rule
 echo "-w /sbin/modprobe -p x -k modules" >> /etc/audit/audit.rule
 echo "-a always,exit -F arch=b64 -S init_module -S delete_module -k modules" >> /etc/audit/audit.rule
+echo "-w /usr/bin/passwd -p x -k passwd_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/groupadd -p x -k group_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/groupmod -p x -k group_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/addgroup -p x -k group_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/useradd -p x -k user_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/userdel -p x -k user_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/usermod -p x -k user_modification" >> /etc/audit/audit.rule
+echo "-w /usr/sbin/adduser -p x -k user_modification" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b32 -S ptrace -k tracing" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b64 -S ptrace -k tracing" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b32 -S ptrace -F a0=0x4 -k code_injection" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b64 -S ptrace -F a0=0x4 -k code_injection" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b32 -S ptrace -F a0=0x5 -k data_injection" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b64 -S ptrace -F a0=0x5 -k data_injection" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b32 -S ptrace -F a0=0x6 -k register_injection" >> /etc/audit/audit.rule
+echo "-a always,exit -F arch=b64 -S ptrace -F a0=0x6 -k register_injection" >> /etc/audit/audit.rule
 echo "-e 2" >> /etc/audit/audit.rule
 pkill auditd
 /sbin/chkconfig --level 12345 auditd on 2>/dev/null
@@ -409,5 +425,5 @@ echo -e ${GREEN}' * Disabling USB cooldisk/Flash mount'${NC}
 /sbin/grubby --update-kernel=ALL --args="nousb"
 sleep 5
 
-echo -e ${INVERT}' Script will enable SELinux for changing configs.'${NC}
+echo -e ${INVERT}' Script will enable SELinux after changing configs.'${NC}
 setenforce 1 > /dev/null
